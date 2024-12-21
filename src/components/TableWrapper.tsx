@@ -10,7 +10,7 @@ interface TableWrapperProps {
     maxPerPage?: number;
 }
 
-export function TableWrapper({ headers = [], data = [], caption = '', showPagination = false, maxPerPage = 5 }: TableWrapperProps) {
+export function TableWrapper({ headers, data, caption = '', showPagination = false, maxPerPage = 5 }: TableWrapperProps) {
     const [currentPage, setCurrentPage] = useState(1)
 
     const indexOfLast = currentPage * maxPerPage

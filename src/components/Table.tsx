@@ -7,7 +7,7 @@ interface TableProps {
     caption?: string;
 }
 
-export function Table({ headers = [], data = [], caption = '' }: TableProps) {
+export function Table({ headers, data,  caption = '' }: TableProps) {
     return (
         <div className="table-container">
             <table className="custom-table" role="table" aria-label={caption || "Data table"}>
