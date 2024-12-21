@@ -6,9 +6,14 @@ import { generateHeader } from "./config/generateHeader";
 import { TableWrapper } from "./components/TableWrapper";
 
 function App() {
-    const { data, isLoading } = useFetch(API_URL)
+    const { data, isLoading, error } = useFetch(API_URL)
+
     if (isLoading) {
         return <Loader />
+    }
+
+    if (error) {
+        return <div role="alert" className="error">{error}</div>
     }
 
     return (
