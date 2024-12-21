@@ -4,7 +4,7 @@ import { Pagination } from './Pagination';
 
 interface TableWrapperProps {
     headers: { title: string, pathColumnName: string }[];
-    data: (string | number | undefined)[][];
+    data: any[];
     caption?: string;
     showPagination?: boolean;
     maxPerPage?: number;
@@ -28,7 +28,11 @@ export function TableWrapper({ headers = [], data = [], caption = '', showPagina
     }
 
     return (
-        <React.Fragment>
+        <div 
+            data-testid="table-wrapper"
+            data-show-pagination={showPagination.toString()}
+            className="table-wrapper"
+        >
             <Table headers={headers} data={currentData} caption={caption} />
             {showPagination && <Pagination
                 currentPage={currentPage}
@@ -36,6 +40,6 @@ export function TableWrapper({ headers = [], data = [], caption = '', showPagina
                 onPrevPage={handlePrevPage}
                 onNextPage={handleNextPage}
             />}
-        </React.Fragment>
+        </div>
     );
 }
